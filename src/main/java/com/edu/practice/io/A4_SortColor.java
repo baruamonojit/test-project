@@ -23,6 +23,25 @@ public class A4_SortColor {
         }
     }
 
+    private static void solution1(int [] arr ) {
+
+        if (arr == null || arr.length==0) {
+            return;
+        }
+        int left =0, right = arr.length-1;
+        for (int i=0; i<= right;) {
+            if (arr[i] == 0) {
+                swap(arr, i, left);
+                left++;
+                i++;
+            } else if (arr[i]==1) {
+                i++;
+            } else if (arr[i]==2) {
+                swap(arr, i, right);
+                right--;
+            }
+        }
+    }
 
     private static void swap(int[] colors, int pos1, int pos2) {
         int temp = colors[pos1];
@@ -34,7 +53,7 @@ public class A4_SortColor {
        // int[] nums = {2, 0, 2, 1, 1, 0};
         int[] nums = {2,1,1,0,0};
         System.out.println("Before Sorting: " + Arrays.toString(nums));
-        solution(nums);
+        solution1(nums);
         System.out.println("After Sorting:  " + Arrays.toString(nums));
     }
 }
